@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ScoutDeck is the personal opportunity scout for ambitious students and early-career builders." />
+    <meta name="theme-color" content="#f7f7f2" />
+    <title>ScoutDeck — Never miss your next thing.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Caveat:wght@600;700&family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>tailwind.config={theme:{extend:{fontFamily:{sans:['Archivo','sans-serif'],serif:['Instrument Serif','serif'],mono:['DM Mono','monospace']}}}}</script>
+    <link rel="stylesheet" href="styles.css?v=20260822-visibility-fix" />
+  </head>
+  <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <header class="site-header" id="site-header">
+      <nav class="nav-shell" aria-label="Main navigation">
+        <a class="wordmark" href="#top" aria-label="ScoutDeck home"><span class="mark"><i></i><i></i><i></i></span>ScoutDeck</a>
+        <div class="nav-links"><a href="#system">How it works</a><a href="#why">Why it works</a></div>
+        <div class="nav-actions"><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode"><i data-lucide="moon"></i></button><a class="nav-cta magnetic" href="#waitlist">Join waitlist <i data-lucide="arrow-up-right"></i></a></div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-orbit hero-orbit-one" aria-hidden="true"></div><div class="hero-orbit hero-orbit-two" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="hero-copy motion-enter">
+            <p class="eyebrow"><span></span> A personal opportunity scout</p>
+            <h1>Your future has<br /><em>more tabs</em> than time.</h1>
+            <p class="hero-text">ScoutDeck watches the opportunity web for you, then sends five unusually good reasons to make a move—every week.</p>
+            <div class="hero-actions">
+              <form class="hero-email-form waitlist-form" action="https://formspree.io/f/xwlezwzw" method="POST" novalidate data-success-target="hero-form-success">
+                <input type="hidden" name="_subject" value="New ScoutDeck waitlist signup" />
+                <label class="sr-only" for="hero-email">Your email</label><input id="hero-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required />
+                <button class="hero-submit magnetic" type="submit"><span class="button-label">Join the waitlist!</span><i data-lucide="arrow-right"></i></button>
+                <p class="form-message" role="status" aria-live="polite"></p>
+              </form>
+              <div id="hero-form-success" class="hero-form-success" hidden tabindex="-1"><i data-lucide="badge-check"></i><span>You’re on the list. Nice move.</span></div>
+              <span>For students and early-career people<br />who are going somewhere.</span>
+            </div>
+          </div>
+
+          <div class="brief-wrap motion-enter" aria-label="Example ScoutDeck Friday Brief">
+            <div class="brief-sticker sticker-one"><i data-lucide="badge-check"></i> Fit checked</div>
+            <div class="brief-sticker sticker-two">Friday <b>brief</b> <i data-lucide="arrow-down"></i></div>
+            <article class="weekly-brief" id="weekly-brief">
+              <header><div class="brief-logo"><span class="mark small"><i></i><i></i><i></i></span> SCOUTDECK</div><span>WEEK / 32</span></header>
+              <div class="brief-heading"><p>Your five, this week</p><b>02 / 05</b></div>
+              <div class="opportunity-stack">
+                <button class="opportunity mini-op" type="button" data-index="0"><span class="op-dot purple"></span><span>Dora Hacks 2.0</span><b>91</b></button>
+                <button class="opportunity active-op" type="button" data-index="1"><span class="op-dot blue"></span><span>Girls Who Yap Fellowship</span><b>97</b></button>
+                <button class="opportunity mini-op" type="button" data-index="2"><span class="op-dot peach"></span><span>Adobe Student Ambassador</span><b>85</b></button>
+              </div>
+              <section class="brief-detail" id="brief-detail">
+                <div class="detail-type"><span id="detail-type">FELLOWSHIP</span><b id="detail-score">97% FIT</b></div>
+                <h2 id="detail-title">Girls Who Yap<br />Fellowship</h2>
+                <p id="detail-copy">A community-building role that matches your product club and design work.</p>
+                <div class="detail-footer"><span id="detail-tag"><i data-lucide="lightbulb"></i> Community builder</span><i data-lucide="arrow-up-right"></i></div>
+              </section>
+              <footer><span>Scoutdeck sees the web.</span><span>You see the signal.</span></footer>
+            </article>
+          </div>
+        </div>
+        <div class="ticker" aria-label="Opportunities ScoutDeck finds"><div><span>HACKATHONS</span><i>✦</i><span>FELLOWSHIPS</span><i>✦</i><span>INTERNSHIPS</span><i>✦</i><span>CONFERENCES</span><i>✦</i><span>SCHOLARSHIPS</span><i>✦</i><span>HACKATHONS</span><i>✦</i><span>FELLOWSHIPS</span><i>✦</i><span>INTERNSHIPS</span></div></div>
+      </section>
+
+      <section class="noise-section" aria-labelledby="noise-title">
+        <div class="noise-intro motion-reveal"><p class="eyebrow dark"><span></span> The actual problem</p><h2 id="noise-title">The web is full of <em>maybe.</em><br />Your week needs a few yeses.</h2></div>
+        <div class="noise-board motion-reveal">
+          <div class="browser-chaos" aria-label="Many scattered opportunity sources"><span>google.com</span><span>discord.com</span><span>eventbrite.com</span><span>linkedin.com</span><span>substack.com</span><b>847 open tabs worth of “maybe”</b></div>
+          <div class="noise-arrow"><i data-lucide="move-right"></i><span>ScoutDeck</span></div>
+          <div class="signal-result"><div class="signal-count">05</div><p>Things with<br /><em>your name on them.</em></p><i data-lucide="orbit"></i></div>
+        </div>
+      </section>
+
+      <section class="system-section" id="system" aria-labelledby="system-title">
+        <div class="section-top motion-reveal"><p class="eyebrow"><span></span> A quieter system</p><h2 id="system-title">Keep your curiosity.<br /><em>Lose the hunt.</em></h2></div>
+        <div class="system-grid">
+          <article class="system-card card-profile motion-reveal"><div class="icon-wrap lilac"><i data-lucide="fingerprint"></i></div><span class="number">01</span><h3>Build a signal profile.</h3><p>Your skills, obscure interests, recent work, eligibility, and the direction you’re leaning.</p><div class="profile-tags"><span>product design</span><span>climate</span><span>India → global</span></div></article>
+          <article class="system-card card-scan motion-reveal"><div class="icon-wrap sky"><i data-lucide="radar"></i></div><span class="number">02</span><h3>Your Scout keeps a weirdly wide eye open.</h3><p>It checks the sources you know and the niche corners you probably don’t.</p><div class="scan-lines"><i></i><i></i><i></i><i></i><b></b></div></article>
+          <article class="system-card card-shortlist motion-reveal"><div class="icon-wrap coral"><i data-lucide="wand-sparkles"></i></div><span class="number">03</span><h3>Get the shortlist—with the why.</h3><p>Five strong calls, each annotated with the reason it surfaced for you right now.</p><div class="reason-note"><i data-lucide="quote"></i><p>“A clear next step for your climate-tech portfolio.”</p></div></article>
+        </div>
+      </section>
+
+      <section class="why-section" id="why" aria-labelledby="why-title">
+        <div class="why-panel">
+          <div class="why-copy motion-reveal"><p class="eyebrow"><span></span> Not a prettier search engine</p><h2 id="why-title">A Scout has a point<br />of view.</h2><p>ScoutDeck is designed to notice the connective tissue: that your open-source project and a small fellowship, together, could become a very good year.</p><a class="text-cta" href="#waitlist">Put a Scout on it <i data-lucide="arrow-right"></i></a></div>
+          <div class="compass motion-reveal" id="compass" aria-label="Interactive compass showing how ScoutDeck connects your skills, interests, and goals"><div class="compass-ring ring-a"></div><div class="compass-ring ring-b"></div><div class="compass-ring ring-c"></div><span class="north">N</span><span class="east">E</span><span class="south">S</span><span class="west">W</span><div class="compass-needle"></div><div class="compass-core">YOU</div><p class="compass-label label-a">WHAT YOU<br />CAN DO</p><p class="compass-label label-b">WHAT YOU<br />CARE ABOUT</p><p class="compass-label label-c">WHERE YOU’RE<br />HEADED</p></div>
+        </div>
+      </section>
+
+      <section class="waitlist-section" id="waitlist" aria-labelledby="waitlist-title">
+        <div class="waitlist-top motion-reveal"><p class="eyebrow dark"><span></span> Early access</p><h2 id="waitlist-title">Less searching.<br /><em>More becoming.</em></h2><p>We’re inviting the first scouts in soon.</p></div>
+        <div class="form-shell motion-reveal">
+          <div class="form-deco" aria-hidden="true"><i data-lucide="sparkle"></i><i data-lucide="asterisk"></i><i data-lucide="star"></i></div>
+          <form id="waitlist-form" class="waitlist-form" action="https://formspree.io/f/xwlezwzw" method="POST" novalidate data-success-target="form-success">
+            <input type="hidden" name="_subject" value="New ScoutDeck waitlist signup" />
+            <label for="email">Your email<input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required /></label>
+            <label for="interest">The things you’re chasing<select id="interest" name="interest"><option value="">Pick an opportunity type (optional)</option><option value="Hackathons">Hackathons</option><option value="Internships">Internships</option><option value="Fellowships">Fellowships</option><option value="Scholarships">Scholarships</option><option value="All of the above">All of the above</option></select></label>
+            <button class="button-primary form-button magnetic" type="submit"><span class="button-label">Start scouting for me</span><i data-lucide="arrow-up-right"></i></button>
+            <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+          <div id="form-success" class="success-state" hidden tabindex="-1"><i data-lucide="badge-check"></i><h3>You’re in the field notes.</h3><p>We’ll send an early access invite your way soon.</p></div>
+          <div class="form-atmosphere" aria-hidden="true"><span class="form-star"></span><span class="form-star"></span><span class="form-star"></span><span class="form-star"></span></div>
+          <p class="form-note">No spam. No fuzzy launch date. Just a note when it’s your turn.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><a class="wordmark" href="#top"><span class="mark"><i></i><i></i><i></i></span>scoutdeck</a><p>Make a more interesting next move.</p><div><a href="#">X / Twitter</a><a href="#">LinkedIn</a><a href="mailto:hello@scoutdeck.com">Email</a></div></footer>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@12.43.0/dist/motion.js"></script>
+    <script src="script.js?v=20260822-visibility-fix"></script>
+  </body>
+</html>
