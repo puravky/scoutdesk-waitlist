@@ -324,3 +324,52 @@ body[data-theme="dark"] .form-shell:after{background:radial-gradient(circle at 1
 @keyframes form-field{to{transform:rotate(360deg)}}
 @keyframes compass-spin{from{transform:translate(-50%,-97%) rotate(0deg)}to{transform:translate(-50%,-97%) rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.form-shell:before{animation:none}}
+
+/* Refined identity, cursor, and ambient field */
+.wordmark{gap:7px;letter-spacing:-.055em}
+.brand-accent{color:#20b79c}
+.brand-compass{width:25px;height:25px;flex:0 0 auto;overflow:visible}
+.brand-compass path,.brand-compass circle{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.2}
+.brand-compass .brand-needle-mint{fill:#20b79c;stroke:#20b79c}
+.brand-compass .brand-needle-ink{fill:currentColor;stroke:currentColor}
+.nav-links{font-family:var(--mono);font-size:.61rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase}
+
+#star-field{position:fixed;z-index:5;inset:0;pointer-events:none;opacity:0;transition:opacity .5s ease}
+#star-field canvas{display:block;width:100%!important;height:100%!important}
+.scout-cursor{position:fixed;z-index:70;top:0;left:0;display:grid;place-items:center;width:38px;height:38px;border:1.5px solid rgba(255,255,255,.92);border-radius:50%;background:rgba(13,20,35,.66);box-shadow:0 5px 18px rgba(6,12,26,.3);color:#fff;opacity:0;pointer-events:none;transform:translate(-50%,-50%) scale(.72);transition:opacity .18s,transform .18s,background .18s;backdrop-filter:blur(5px)}
+.scout-cursor svg{width:16px;height:16px;stroke-width:2}
+.scout-cursor span{position:absolute;right:4px;bottom:5px;width:5px;height:5px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 3px rgba(142,216,194,.18)}
+.scout-cursor.is-visible{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.scout-cursor.is-interactive{background:#fff;color:#0e1424;transform:translate(-50%,-50%) scale(1.18)}
+@media(pointer:fine){body.has-scout-cursor,body.has-scout-cursor a,body.has-scout-cursor button,body.has-scout-cursor input,body.has-scout-cursor select{cursor:none}}
+
+/* Complete dark companion theme */
+body[data-theme="dark"] #star-field{opacity:.58}
+body[data-theme="dark"] .brand-accent{color:#4fd2ba}
+body[data-theme="dark"] .noise-section{color:#f7f7f2}
+body[data-theme="dark"] .noise-intro h2{color:#f7f7f2}
+body[data-theme="dark"] .weekly-brief{border-color:#f7f7f2;background:#0a101b;color:#f7f7f2;box-shadow:12px 13px 0 #526587}
+body[data-theme="dark"] .brief-wrap:hover .weekly-brief{box-shadow:17px 18px 0 var(--mint)}
+body[data-theme="dark"] .weekly-brief>header,body[data-theme="dark"] .weekly-brief>footer{border-color:#33415c;color:#b9c5dc}
+body[data-theme="dark"] .brief-logo{color:#f7f7f2}
+body[data-theme="dark"] .opportunity{background:#172137;color:#bfc9da}
+body[data-theme="dark"] .opportunity:hover{background:#222e48;color:#fff}
+body[data-theme="dark"] .opportunity.active-op{background:#283a70;color:#fff}
+body[data-theme="dark"] .system-section{background:#080d16}
+body[data-theme="dark"] .system-card{border-color:rgba(255,255,255,.9);background:#0a101b;box-shadow:none}
+body[data-theme="dark"] .system-card:hover{box-shadow:7px 7px 0 rgba(142,216,194,.24)}
+body[data-theme="dark"] .system-card h3{color:#fff}
+body[data-theme="dark"] .hero-submit{border-color:#0a0a0a;background:#fff;color:#080d16}
+body[data-theme="dark"] .hero-submit:hover{border-color:#fff;background:#080d16;color:#fff}
+body[data-theme="dark"] .form-button{border-color:#f7f7f2;background:#f7f7f2;color:#080d16;box-shadow:4px 4px 0 var(--coral)}
+body[data-theme="dark"] .form-button:hover{border-color:#f7f7f2;background:#080d16;color:#f7f7f2;box-shadow:6px 6px 0 var(--mint)}
+
+/* Extra opportunity signals around Scout POV */
+.radar-signal{position:absolute;z-index:2;margin:0;border:1px solid rgba(255,255,255,.26);border-radius:99px;background:rgba(18,37,112,.25);color:#e7ebff;font:500 .48rem var(--mono);letter-spacing:.1em;padding:7px 9px;backdrop-filter:blur(5px);animation:radar-pulse 4s ease-in-out infinite}
+.signal-hackathons{right:10%;top:39%}
+.signal-fellowships{left:11%;bottom:14%;animation-delay:1.2s}
+.signal-scholarships{right:16%;bottom:11%;animation-delay:2.1s}
+.compass-needle{animation-duration:22s}
+@keyframes radar-pulse{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(-6px);opacity:1}}
+@media(max-width:560px){.radar-signal{font-size:.42rem;padding:5px 6px}.signal-hackathons{right:5%;top:38%}.signal-fellowships{left:4%;bottom:15%}.signal-scholarships{right:6%;bottom:9%}}
+@media(prefers-reduced-motion:reduce){#star-field{display:none}.radar-signal{animation:none}.compass-needle{animation:none}}

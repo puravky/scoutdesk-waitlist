@@ -14,10 +14,11 @@
     <link rel="stylesheet" href="styles.css?v=20260822-visibility-fix" />
   </head>
   <body>
-    <div class="cursor-glow" aria-hidden="true"></div>
+    <div id="star-field" aria-hidden="true"></div>
+    <div class="scout-cursor" aria-hidden="true"><i data-lucide="search"></i><span></span></div>
     <header class="site-header" id="site-header">
       <nav class="nav-shell" aria-label="Main navigation">
-        <a class="wordmark" href="#top" aria-label="ScoutDeck home"><span class="mark"><i></i><i></i><i></i></span>ScoutDeck</a>
+        <a class="wordmark" href="#top" aria-label="ScoutDeck home"><svg class="brand-compass" viewBox="0 0 42 42" aria-hidden="true"><path d="M5 18h8M4 23h10M7 28h7"/><circle cx="25" cy="22" r="12"/><path class="brand-needle-mint" d="m30.7 14.4-3.4 7.1-7.1 3.4 3.4-7.1z"/><path class="brand-needle-ink" d="m19.8 29.6 3.4-7.1 4.1 4.1z"/><circle cx="25" cy="22" r="1.7"/></svg><span>Scout<span class="brand-accent">Deck</span></span></a>
         <div class="nav-links"><a href="#system">How it works</a><a href="#why">Why it works</a></div>
         <div class="nav-actions"><button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode"><i data-lucide="moon"></i></button><a class="nav-cta magnetic" href="#waitlist">Join waitlist <i data-lucide="arrow-up-right"></i></a></div>
       </nav>
@@ -88,7 +89,7 @@
       <section class="why-section" id="why" aria-labelledby="why-title">
         <div class="why-panel">
           <div class="why-copy motion-reveal"><p class="eyebrow"><span></span> Not a prettier search engine</p><h2 id="why-title">A Scout has a point<br />of view.</h2><p>ScoutDeck is designed to notice the connective tissue: that your open-source project and a small fellowship, together, could become a very good year.</p><a class="text-cta" href="#waitlist">Put a Scout on it <i data-lucide="arrow-right"></i></a></div>
-          <div class="compass motion-reveal" id="compass" aria-label="Interactive compass showing how ScoutDeck connects your skills, interests, and goals"><div class="compass-ring ring-a"></div><div class="compass-ring ring-b"></div><div class="compass-ring ring-c"></div><span class="north">N</span><span class="east">E</span><span class="south">S</span><span class="west">W</span><div class="compass-needle"></div><div class="compass-core">YOU</div><p class="compass-label label-a">WHAT YOU<br />CAN DO</p><p class="compass-label label-b">WHAT YOU<br />CARE ABOUT</p><p class="compass-label label-c">WHERE YOU’RE<br />HEADED</p></div>
+          <div class="compass motion-reveal" id="compass" aria-label="Interactive compass showing how ScoutDeck connects your skills, interests, and goals"><div class="compass-ring ring-a"></div><div class="compass-ring ring-b"></div><div class="compass-ring ring-c"></div><span class="north">N</span><span class="east">E</span><span class="south">S</span><span class="west">W</span><div class="compass-needle"></div><div class="compass-core">YOU</div><p class="compass-label label-a">WHAT YOU<br />CAN DO</p><p class="compass-label label-b">WHAT YOU<br />CARE ABOUT</p><p class="compass-label label-c">WHERE YOU’RE<br />HEADED</p><p class="radar-signal signal-hackathons">HACKATHONS</p><p class="radar-signal signal-fellowships">FELLOWSHIPS</p><p class="radar-signal signal-scholarships">SCHOLARSHIPS</p></div>
         </div>
       </section>
 
@@ -110,9 +111,10 @@
       </section>
     </main>
 
-    <footer class="site-footer"><a class="wordmark" href="#top"><span class="mark"><i></i><i></i><i></i></span>scoutdeck</a><p>Make a more interesting next move.</p><div><a href="#">X / Twitter</a><a href="#">LinkedIn</a><a href="mailto:hello@scoutdeck.com">Email</a></div></footer>
+    <footer class="site-footer"><a class="wordmark" href="#top"><svg class="brand-compass" viewBox="0 0 42 42" aria-hidden="true"><path d="M5 18h8M4 23h10M7 28h7"/><circle cx="25" cy="22" r="12"/><path class="brand-needle-mint" d="m30.7 14.4-3.4 7.1-7.1 3.4 3.4-7.1z"/><path class="brand-needle-ink" d="m19.8 29.6 3.4-7.1 4.1 4.1z"/><circle cx="25" cy="22" r="1.7"/></svg><span>Scout<span class="brand-accent">Deck</span></span></a><p>Make a more interesting next move.</p><div><a href="#">X / Twitter</a><a href="#">LinkedIn</a><a href="mailto:hello@scoutdeck.com">Email</a></div></footer>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/motion@12.43.0/dist/motion.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
     <script src="script.js?v=20260822-visibility-fix"></script>
   </body>
 </html>

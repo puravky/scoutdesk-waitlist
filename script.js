@@ -5,11 +5,32 @@ const stagger = motion.stagger || (() => 0);
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const header = document.getElementById('site-header');
-const cursorGlow = document.querySelector('.cursor-glow');
+const scoutCursor = document.querySelector('.scout-cursor');
 const themeToggle = document.getElementById('theme-toggle');
 
 const renderIcons = () => window.lucide?.createIcons?.({ attrs: { 'stroke-width': 1.7 } });
 renderIcons();
+
+// A low-density, library-backed meteor field: decorative only, and optional if the CDN is unavailable.
+if (!prefersReducedMotion && window.tsParticles?.load) {
+  window.tsParticles.load({
+    id: 'star-field',
+    options: {
+      fullScreen: { enable: false },
+      detectRetina: true,
+      fpsLimit: 60,
+      particles: {
+        number: { value: 26, density: { enable: true, width: 1400, height: 900 } },
+        color: { value: ['#8ed8c2', '#a699f3', '#f38c7d'] },
+        shape: { type: 'circle' },
+        opacity: { value: { min: 0.12, max: 0.55 } },
+        size: { value: { min: 1, max: 2.6 } },
+        move: { enable: true, direction: 'bottom-right', speed: { min: 0.08, max: 0.28 }, outModes: { default: 'out' } },
+        twinkle: { particles: { enable: true, frequency: 0.02, opacity: 0.85 } }
+      }
+    }
+  }).catch(() => {});
+}
 
 const setTheme = (theme) => {
   const dark = theme === 'dark';
@@ -54,11 +75,16 @@ if (!prefersReducedMotion) {
   inView('.form-shell', (element) => {
     animate(element.querySelectorAll('.form-star'), { y: [0, -10, 0], scale: [1, 1.2, 1] }, { duration: 2.8, delay: stagger(0.18), repeat: Infinity, ease: 'easeInOut' });
   }, { amount: 0.35 });
-  window.addEventListener('pointermove', (event) => {
-    cursorGlow.style.opacity = '1';
-    cursorGlow.style.left = `${event.clientX}px`;
-    cursorGlow.style.top = `${event.clientY}px`;
-  }, { passive: true });
+  if (scoutCursor && window.matchMedia('(pointer: fine)').matches) {
+    document.body.classList.add('has-scout-cursor');
+    window.addEventListener('pointermove', (event) => {
+      scoutCursor.classList.add('is-visible');
+      scoutCursor.style.left = `${event.clientX}px`;
+      scoutCursor.style.top = `${event.clientY}px`;
+      scoutCursor.classList.toggle('is-interactive', Boolean(event.target.closest('a, button, input, select, label')));
+    }, { passive: true });
+    document.addEventListener('mouseleave', () => scoutCursor.classList.remove('is-visible'));
+  }
   document.querySelectorAll('.magnetic').forEach((element) => {
     element.addEventListener('pointermove', (event) => {
       const bounds = element.getBoundingClientRect();
