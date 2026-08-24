@@ -1,8 +1,8 @@
-# ScoutDeck — Waitlist Landing Page
+# scoutdeck — Waitlist Landing Page
 
-A personal opportunity scout for students and early-career builders. This is the pre-launch waitlist page: hero pitch, "how it works" walkthrough, and an email signup form (via Formspree).
+A personal opportunity scout for students and early-career builders. This is the pre-launch waitlist page: hero pitch, "how it works" walkthrough, and a landing page for the future coming product - scoutdeck.
 
-**Live:** [scoutdeck.com](https://scoutdeck.com) <!-- replace with your actual deployed URL -->
+**Live:** [scoutdeck](https://scoutsdeck.netflify.app)
 
 ## Stack
 - Static HTML / CSS / vanilla JS
