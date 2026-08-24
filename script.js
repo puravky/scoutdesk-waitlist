@@ -1,11 +1,10 @@
 const motion = window.Motion || {};
-const animate = motion.animate || (() => {});
-const inView = motion.inView || (() => {});
+const animate = motion.animate || (() => { });
+const inView = motion.inView || (() => { });
 const stagger = motion.stagger || (() => 0);
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const header = document.getElementById('site-header');
-const scoutCursor = document.querySelector('.scout-cursor');
 const themeToggle = document.getElementById('theme-toggle');
 
 const renderIcons = () => window.lucide?.createIcons?.({ attrs: { 'stroke-width': 1.7 } });
@@ -29,7 +28,7 @@ if (!prefersReducedMotion && window.tsParticles?.load) {
         twinkle: { particles: { enable: true, frequency: 0.02, opacity: 0.85 } }
       }
     }
-  }).catch(() => {});
+  }).catch(() => { });
 }
 
 const setTheme = (theme) => {
@@ -75,16 +74,6 @@ if (!prefersReducedMotion) {
   inView('.form-shell', (element) => {
     animate(element.querySelectorAll('.form-star'), { y: [0, -10, 0], scale: [1, 1.2, 1] }, { duration: 2.8, delay: stagger(0.18), repeat: Infinity, ease: 'easeInOut' });
   }, { amount: 0.35 });
-  if (scoutCursor && window.matchMedia('(pointer: fine)').matches) {
-    document.body.classList.add('has-scout-cursor');
-    window.addEventListener('pointermove', (event) => {
-      scoutCursor.classList.add('is-visible');
-      scoutCursor.style.left = `${event.clientX}px`;
-      scoutCursor.style.top = `${event.clientY}px`;
-      scoutCursor.classList.toggle('is-interactive', Boolean(event.target.closest('a, button, input, select, label')));
-    }, { passive: true });
-    document.addEventListener('mouseleave', () => scoutCursor.classList.remove('is-visible'));
-  }
   document.querySelectorAll('.magnetic').forEach((element) => {
     element.addEventListener('pointermove', (event) => {
       const bounds = element.getBoundingClientRect();
@@ -152,3 +141,34 @@ document.querySelectorAll('.waitlist-form').forEach((form) => {
     }
   });
 });
+
+// Custom scout cursor: smooth-follow dot that expands over interactive elements.
+// Disabled entirely for touch/coarse-pointer devices and reduced-motion users.
+const scoutCursor = document.querySelector('.scout-cursor');
+if (scoutCursor && !prefersReducedMotion && window.matchMedia('(pointer: fine)').matches) {
+  document.body.classList.add('has-scout-cursor');
+
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let cursorX = mouseX;
+  let cursorY = mouseY;
+  let raf = null;
+
+  const tick = () => {
+    cursorX += (mouseX - cursorX) * 0.22;
+    cursorY += (mouseY - cursorY) * 0.22;
+    scoutCursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+    raf = requestAnimationFrame(tick);
+  };
+
+  window.addEventListener('pointermove', (event) => {
+    mouseX = event.clientX;
+    mouseY = event.clientY;
+    scoutCursor.classList.add('is-visible');
+    scoutCursor.classList.toggle('is-interactive', Boolean(event.target.closest('a, button, input, select, label, .system-card, .opportunity')));
+    if (!raf) raf = requestAnimationFrame(tick);
+  }, { passive: true });
+
+  document.addEventListener('mouseleave', () => scoutCursor.classList.remove('is-visible'));
+  window.addEventListener('blur', () => scoutCursor.classList.remove('is-visible'));
+}
