@@ -2,7 +2,7 @@
 
 A personal opportunity scout for students and early-career builders. This is the pre-launch waitlist page: hero pitch, "how it works" walkthrough, and a landing page for the future coming product - scoutdeck.
 
-**Live:** [scoutdeck](https://scoutsdeck.netflify.app)
+**Live:** [scoutdeck](https://scoutsdeck.netlify.app)
 
 ## Stack
 - Static HTML / CSS / vanilla JS
